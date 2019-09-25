@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE persons SYSTEM "2_person.dtd" >
+<persons>
+  <search>&content;</search>
+  <person id="idvalue0" sex="男" age="28">
+    <tel>tel</tel>
+    <address>address</address>
+    <company>company</company>
+    <salary>50k</salary>
+  </person>
+</persons>

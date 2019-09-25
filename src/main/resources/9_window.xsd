@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/9_window"
+	xmlns:tns="http://www.example.org/9_window"
+	elementFormDefault="qualified">
+	<element name="person" type="tns:personType" />
+
+	<complexType name="personType">
+		<sequence>
+			<element name="name" type="string" />
+			<element name="age" type="tns:ageType" />
+			<element name="email" type="tns:emailType" />
+		</sequence>
+		<attribute name="sex" type="tns:sexType"></attribute>
+	</complexType>
+
+	<simpleType name="ageType">
+		<restriction base="int">
+			<minInclusive value="1" />
+			<maxExclusive value="150" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="sexType">
+		<restriction base="string">
+			<enumeration value="男" />
+			<enumeration value="女" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="emailType">
+		<restriction base="string">
+			<pattern value=""></pattern>
+		</restriction>
+	</simpleType>
+	<!-- 百叶窗 结合了前两个的优点主要是type的复用 
+	                         只有一个element节点为根节点
+	          simpletype作为类型的约束条件 -->
+</schema>

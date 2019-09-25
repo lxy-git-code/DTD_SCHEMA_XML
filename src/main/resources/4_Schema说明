@@ -1,0 +1,8 @@
+优点：1.可以使用多命名空间支持相同的元素 2.可以很好的完成对Java或者所有对象的修饰提供了大量数据类型
+2.schema文件说明
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+xmlns="http://www.w3.org/2001/XMLSchema"  //默认命名空间这是标准，访问其下面的元素不用加认识标识信息
+targetNamespace="http://www.example.org/NewXMLSchema" //该schema文件的名称空间，xml文件要想使用该schema文件中的元素就要把名称空间写入schemaLocation中
+xmlns:tns="http://www.example.org/NewXMLSchema" //命名空间，访问其下面的元素加标识信息tns，目前引入的是自己的schema，就是说在本地引用自己创建的元素时加标识tns：
+elementFormDefault="qualified">

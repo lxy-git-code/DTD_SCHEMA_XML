@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/russian_doll"
+	xmlns:tns="http://www.example.org/russian_doll"
+	elementFormDefault="qualified">
+	<element name="books">
+		<complexType>
+			<sequence minOccurs="1" maxOccurs="unbounded">
+				<element name="book">
+					<complexType>
+						<sequence>
+							<element name="title" type="string"></element>
+							<element name="content" type="string"></element>
+							<choice>   <!--几个中间选一个 -->
+								<element name="auhtor" type="string"></element>
+								<element name="authors">
+									<complexType>
+										<sequence maxOccurs="2">
+											<element name="auhtor" type="string"></element>
+										</sequence>
+									</complexType>
+								</element>
+							</choice>
+						</sequence>
+						<attribute name="id" type="int" use="required"></attribute><!--属性必须出现在complexType中，若其中有sequence必须在complex之后 -->
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	<!-- russian doll(俄罗斯套娃形式)只有一个根元素books，嵌套大量的子元素。 
+	          优点：关系清晰类似于DTD快速定位根节点及其字节的关系, 
+		缺点：元素无法进复用。 -->
+</schema>

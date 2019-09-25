@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/normal"
+	xmlns:tns="http://www.example.org/normal"
+	elementFormDefault="qualified">
+	<element name="person">
+		<complexType>
+			<sequence> <!--默认属性  minOccurs="1" maxOccurs="unbounded" 有顺序的  至少出现一次最多无限制-->
+				<element name="name" type="string"></element>
+				<element name="age" type="int"></element>
+				<element name="gender" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

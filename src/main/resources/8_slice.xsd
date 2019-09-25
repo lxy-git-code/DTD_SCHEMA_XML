@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/slice"
+	xmlns:tns="http://www.example.org/slice" elementFormDefault="qualified">
+	<element name="book" type="tns:bookType"></element>
+	<element name="id" type="string"></element>
+	<element name="title" type="string"></element>
+	<element name="content" type="string"></element>
+
+	<complexType name="bookType">
+		<sequence>
+			<element ref="tns:id" />
+			<element ref="tns:title" />
+			<element ref="tns:content" />
+		</sequence>
+	</complexType>
+	<!-- slice(腊肠切片) 
+	优点:所有元素都不进行嵌套实现元素最大程度的复用 
+	缺点:根节点不清晰，任意元素都可以是根节点
+	 注意：将所有element元素放在一起符合规范 -->
+</schema>

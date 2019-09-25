@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT persons (search,person+)>
+<!ELEMENT search (#PCDATA)>
+<!ELEMENT person (tel,address,company,salary?)>
+<!ATTLIST person id ID #REQUIRED sex CDATA #FIXED "男" age CDATA #IMPLIED>
+<!ELEMENT tel (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT company (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+<!ENTITY  content "About Search">

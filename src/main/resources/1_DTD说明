@@ -1,0 +1,38 @@
+1.在DTD文件中 ---+：至少1个,?：0值1个,*：任意个,没写 ：1个
+
+2.<!EMEMENT 元素名称 类型> 
+其中类型包括：EMPTY,ANY,#PCDATA
+<!ELEMENT name EMPTY>=<name/>
+EMPTY:该元素不能包含子元素和文本，但是可以有属性。（空元素）
+<!ELEMENT phone (#PCDATA)>=<phone>13112341341<phone/>
+#PCDATA：可以包含任何的字符数据，但是不能再其中包含任何子元素其他类型 
+<!ELEMENT phone ANY>有子元素或者值都可以
+ANY：该元素可以包含任何在DTD中定义的元素内容
+
+【DTD属性定义语法】
+
+<!ATTLIST 元素名称   属性名称 类型 属性特点 属性名称 类型 属性特点>
+属性的类型包括
+1) CDATA：（character data）表示的是普通类型 ，也就是说表示可以放文本（数字和中文）；
+2) ID：        表示该属性的取值必须是唯一的  备注id类型的属性的值不能以数字开头，一般以英文开头。
+3) IDREF/IDREFS：表示属性的值指向文档中其他地方声明的ID类型的值 也就是说当一个元素的属性值，需要去引用另外一个id，则使用IDREF，如果希望引用多个，则使用IDREFS 且属性的值用空格隔开即可；
+4) ENTITY/ENTITIES  ：表示的是实体的意思；实体:用于为一段内容创建一个别名，以后再xml文档中，就可以使用别名引用这段内容了。dtd文件中的引用实体是用来给xml文件用的，而参数实体是在dtd文件本身中使用的
+(外部uri如何填写?)
+属性特点
+#REQUIRED：该属性必须出现
+#IMPLIED：该属性是可选的
+“默认值”：属性是可选的；若不出现，在验证文档后，元素将隐含该属性，取默认值
+#FIXED “固定值”：属性是可选的；若出现，属性值必须取固定值；若不出现，则验证后自动隐含该固定值
+
+缺点:1.无法支持名称相同的元素，元素名称相同就报错不合法。2.数据类型单一
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT classroom (grade,name,students)>
+<!ATTLIST classroom id ID #REQUIRED>
+<!ELEMENT grade (#PCDATA)>
+<!ELEMENT name (#PCDATA)> //元素重名就会报错
+<!ELEMENT students (student+)>
+<!ELEMENT student (id,name,age)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)> //元素重名就会报错
+<!ELEMENT age (#PCDATA)>

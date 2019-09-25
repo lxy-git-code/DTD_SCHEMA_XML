@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:person xmlns:tns="http://www.example.org/normal" 
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+            xsi:schemaLocation="http://www.example.org/normal 5_normal.xsd ">
+  <tns:name>lxy</tns:name>
+  <tns:age>28</tns:age>
+  <tns:gender>male</tns:gender>
+</tns:person>
